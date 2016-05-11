@@ -1,7 +1,7 @@
 from flask import Flask
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/') #[Route decorator] This registers the function as a route
 def index():
     return '<h1>Hello World!</h1>'
 @app.route('/about')
