@@ -10,7 +10,9 @@ def about():
 @app.route('/last')
 def last():
     return '<h1>Finally last page</h1>'
-
+@app.route('/user/<name>')
+def user(name):
+    return '<h1>Hello, %s!</h1>' % name
 
 
 if __name__ == '__main__':
