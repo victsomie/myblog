@@ -1,5 +1,5 @@
 #!flask/bin/python
-from flask import render_template, session, redirect, request
+from flask import render_template, session, redirect, request, escape, url_for
 from app import app
 
 @app.route('/') #[Route decorator] This registers the function as a route
@@ -16,11 +16,17 @@ def about():
 def login():
     if request.method == 'POST':
         session['username'] = request.form['username']
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
     return '''
         <form action="" method="post">
-            <p><input type=text name=username>
             <p><input type=text name=username>
             <p><input type=submit value=Login>
         </form>
             '''
+@app.route('/log')
+def log():
+    if 'username' in session:
+        return 'Logged in as %s' % escape(session['username'])
+    return 'You are not logged in'
+
+app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
