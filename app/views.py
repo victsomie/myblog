@@ -1,5 +1,5 @@
 #!flask/bin/python
-from flask import render_template
+from flask import render_template, session, redirect, request
 from app import app
 
 @app.route('/') #[Route decorator] This registers the function as a route
@@ -20,4 +20,7 @@ def login():
     return '''
         <form action="" method="post">
             <p><input type=text name=username>
-            <p><input type=submit value=Login>'''
+            <p><input type=text name=username>
+            <p><input type=submit value=Login>
+        </form>
+            '''
