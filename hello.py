@@ -1,3 +1,4 @@
+#!usr/bin/python
 from flask import Flask
 from flask import request
 app = Flask(__name__)
@@ -21,9 +22,7 @@ def get_user(id):
         abort(404)
     return '<h1>Hello, %s</h1>' % user.name
 
-from flask.ext.script import Manager
-manager = Manager(app)
 
 
 if __name__ == '__main__':
-    manager.run()
+    app.run()

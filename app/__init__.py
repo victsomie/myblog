@@ -15,5 +15,10 @@ def user(name):
     return '<h1>Hello, %s!</h1>' % name
 
 
+#The following enables debugging either by setting that flag on the application
 if __name__ == '__main__':
     app.run(debug=True)
+    """
+    Or passing that as a parameter
+    """
+
