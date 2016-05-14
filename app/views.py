@@ -11,3 +11,13 @@ def home():
 def about():
     user = {'nickname': 'Miguel'}  # fake user
     return render_template('home.html', user=user)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        return redirect(url_for('index'))
+    return '''
+        <form action="" method="post">
+            <p><input type=text name=username>
+            <p><input type=submit value=Login>'''
